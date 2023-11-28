@@ -1,28 +1,9 @@
 import java.util.Arrays;
 
-//Approach 1: Naive Merging (Linear Time Complexity)
 //Approach 2: Divide and Conquer (Logarithmic Time Complexity)
 public class MedianOfTwoArrays {
-
-    public static double findMedianNaive(int[] a, int[] b)
-    {
-        int[] merged = new int[a.length + b.length];
-        System.arraycopy(a, 0, merged, 0, a.length);
-        System.arraycopy(b, 0, merged, a.length, b.length);
-
-        Arrays.sort(merged);
-
-        int n = merged.length;
-        if (n % 2 == 0) {
-            return (merged[n / 2 - 1] + merged[n / 2]) / 2.0;
-        } else {
-            return merged[n / 2];
-        }
-    }
-
     public static double findMedianDivideConquer(int[] a, int[] b)
     {
-
         if (a.length > b.length) {
             int[] temp = a;
             a = b;
@@ -66,13 +47,7 @@ public class MedianOfTwoArrays {
     public static void main(String[] args) {
         int[] a1 = {-5, 3, 6, 12, 15};
         int[] b1 = {-12, -10, -6, -3, 4, 10};
-        System.out.println("findMedianNaive: The median is: " + findMedianNaive(a1, b1));
         System.out.println("findMedianDivideConquer: The median is: " + findMedianDivideConquer(a1, b1));
-
-        int[] a2 = {2, 3, 5, 8};
-        int[] b2 = {10, 12, 14, 16, 18, 20};
-        System.out.println("findMedianNaive: The median is: " + findMedianNaive(a2, b2));
-        System.out.println("findMedianDivideConquer: The median is: " + findMedianDivideConquer(a2, b2));
     }
 
 }
