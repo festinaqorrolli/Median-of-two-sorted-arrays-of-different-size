@@ -1,6 +1,8 @@
 import java.util.Arrays;
 
 public class FindMedian {
+    // Time Complexity: O(k*log(k))   -> k=m+n
+    // Space Complexity: O(k)         -> k=m+n
     public static double findMedianSortedArrays(int[] arr1, int[] arr2) {
         int i = arr1.length;
         int j = arr2.length;
