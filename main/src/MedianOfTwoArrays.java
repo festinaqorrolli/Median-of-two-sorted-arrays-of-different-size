@@ -18,6 +18,7 @@ public class MedianOfTwoArrays {
 
         while (low <= high)
         {
+            // Binary search to find a partition point in array a
             int partitionA = (low + high) / 2;
             int partitionB = halfLength - partitionA;
 
@@ -29,14 +30,17 @@ public class MedianOfTwoArrays {
 
             if (maxLeftA <= minRightB && maxLeftB <= minRightA)
             {
+                // Valid partition found
                 if (totalLength % 2 == 0) {
                     return (double) (Math.max(maxLeftA, maxLeftB) + Math.min(minRightA, minRightB)) / 2;
                 } else {
                     return Math.max(maxLeftA, maxLeftB);
                 }
             } else if (maxLeftA > minRightB) {
+                // Adjusting partitionA to move left in array a
                 high = partitionA - 1;
             } else {
+                // Adjusting partitionA to move right in array a
                 low = partitionA + 1;
             }
         }
